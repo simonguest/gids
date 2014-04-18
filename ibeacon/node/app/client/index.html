@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trilateration</title>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io.connect('http://localhost:9000');
+		console.log(socket);
+		socket.on('updated', function (data) {
+			var floorPlan = document.getElementById('floorPlan');
+			var floorPlanContext = floorPlan.getContext('2d');
+			floorPlanContext.fillRect(data.data.x * 50,data.data.y * 50,3,3);
+			console.log('plotting '+data.data.x+','+data.data.y);
+		});
+	</script>
+</head>
+<body>
+<canvas id="floorPlan" width="600" height="600" style="background: #ffff00;"></canvas>
+</body>
+</html>
