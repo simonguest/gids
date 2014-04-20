@@ -1,0 +1,19 @@
+{
+  "name": "1-web-testing-with-javascript",
+  "version": "0.0.1",
+  "authors": [
+    "Simon Guest <me@simonguest.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.9",
+    "qunit": "~1.13.0"
+  }
+}

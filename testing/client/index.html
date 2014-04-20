@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+<head>
+    <title>Web Testing Demo</title>
+    <script src="/bower_components/angular/angular.min.js"></script>
+	<script src="assert.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+<div ng-controller="AddController">
+    <h1>Add two numbers:</h1>
+    <label for="primary"></label><input id="primary" type="text" ng-model="x">
+    <label for="secondary"></label><input id="secondary" type="text" ng-model="y">
+    <button id="addButton" ng-click="add(x, y)">=</button>
+    <input id="resultTextBox" type="text" placeholder="Result" ng-model="result">
+</div>
+</body>
+</html>
