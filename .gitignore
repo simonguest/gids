@@ -11,3 +11,5 @@
 **/.idea/**
 
 **/bower_components/**
+
+**/tmp/**

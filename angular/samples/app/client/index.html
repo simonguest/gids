@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="app.js"></script>
+  <script src="controllers/todoController.js"></script>
+  <script src="services/todoService.js"></script>
+  <script src="directives/todoItemDirective.js"></script>
+  <link rel="stylesheet" href="styles/todo.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h2>GIDS AngularJS Todo Sample</h2>
+    <div ng-controller="TodoController">
+      <span>{{remaining()}} of {{todos.length}} remaining</span>
+      [ <a href="" ng-click="archive()">archive</a> ]
+      <ul class="unstyled">
+        <li ng-repeat="todo in todos">
+          <todo-item/>
+        </li>
+      </ul>
+      <form ng-submit="addTodo()">
+        <input type="text" ng-model="todoText"  size="30"
+        placeholder="add new todo here">
+        <input class="btn-primary" type="submit" value="add">
+      </form>
+      <br>
+      <!-- <progressbar value="100 - (remaining() / todos.length * 100)"/> -->
+    </div>
+  </div>
+</body>
+</html>
