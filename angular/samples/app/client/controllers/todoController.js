@@ -1,8 +1,6 @@
 function TodoController($scope, $log, TodoService) {
 
-  $scope.todos = [
-    {text:'learn angular', done:true},
-    {text:'build an angular app', done:false}];
+  $scope.todos = TodoService.todos;
 
   // $scope.$watchCollection('todos', function(newTodos){
   //   $log.log('todos has been updated');
@@ -11,8 +9,8 @@ function TodoController($scope, $log, TodoService) {
   //   }
   //   $scope.todos = newTodos;
   // });
- 
-  $scope.addTodo = function() {
+
+   $scope.addTodo = function() {
     $scope.todos.push({text:$scope.todoText, done:false});
     $scope.todoText = '';
   };
