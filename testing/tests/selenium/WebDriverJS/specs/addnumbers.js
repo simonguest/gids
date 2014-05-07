@@ -9,5 +9,6 @@ describe('Test math functions', function () {
 
     it('should add two numbers correctly', function () {
         expect(homePage.performAddition(10,20)).toEqual('30');
+        homePage.takeScreenshot();
     });
 });

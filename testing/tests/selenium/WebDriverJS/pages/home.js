@@ -1,5 +1,6 @@
 module.exports = function () {
 
+    var fs = require('fs');
     var ptor;
 
     this.load = function () {
@@ -13,4 +14,14 @@ module.exports = function () {
         ptor.findElement(protractor.By.id('addButton')).click();
         return ptor.findElement(protractor.By.id('resultTextBox')).getAttribute('value');
     };
+
+    this.takeScreenshot = function() {
+        ptor.takeScreenshot().then(function (png)
+        {
+            console.log('Saving screenshot');
+            var stream = fs.createWriteStream('/tmp/screenshot.png');
+            stream.write(new Buffer(png, 'base64'));
+            stream.end();
+        });
+    }
 }
