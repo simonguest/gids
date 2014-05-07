@@ -13,3 +13,5 @@
 **/bower_components/**
 
 **/tmp/**
+
+/angular/samples/phantomjsdriver.log
