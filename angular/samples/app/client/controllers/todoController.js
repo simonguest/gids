@@ -1,16 +1,17 @@
 function TodoController($scope, $log, TodoService) {
 
+  var logger = $log.getInstance("TodoController");
+  logger.log("I am in the controller");
+
+  $scope.$watchCollection('todos', function(newTodos){
+    for(var f=0; f<newTodos.length; f++){
+      newTodos[f].category = $scope.getCategory(newTodos[f]);
+    }
+  });
+
   $scope.todos = TodoService.todos;
 
-  // $scope.$watchCollection('todos', function(newTodos){
-  //   $log.log('todos has been updated');
-  //   for (var f=0; f<newTodos.length; f++){
-  //     newTodos[f].category = $scope.getCategory(newTodos[f]);
-  //   }
-  //   $scope.todos = newTodos;
-  // });
-
-   $scope.addTodo = function() {
+  $scope.addTodo = function() {
     $scope.todos.push({text:$scope.todoText, done:false});
     $scope.todoText = '';
   };
